@@ -1,0 +1,9 @@
+<div class="widget-search widget">
+    <form action="{% url 'blog:search' %}" method="GET">
+        <!-- Search bar -->
+        <input class="form-control" type="text" placeholder="Buscar no blog" value="{{ search_term }}" name="q" required>
+        <button type="submit" class="widget-search-btn">
+            <i class="tf-ion-ios-search"></i>
+        </button>
+    </form>
+</div>

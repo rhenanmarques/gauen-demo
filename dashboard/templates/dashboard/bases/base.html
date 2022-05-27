@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+
+    {% include 'dashboard/partials/head.html' %}
+    <title> {% block title %}{% endblock title %} Gauen</title>
+
+</head>
+
+<body>
+    {% include 'dashboard/partials/preload.html' %}
+    <div id="main-wrapper">
+        {% include 'dashboard/partials/navHeader.html' %}
+        {% include 'dashboard/partials/header.html' %}
+        {% include 'dashboard/partials/sideBar.html' %}
+
+        
+        {% block content %}{% endblock content %}
+                        
+
+    </div>
+    {% include 'dashboard/partials/footer.html' %}
+
+    <script>
+        var loadFile = function(event) {
+          var output = document.getElementById('output');
+          output.src = URL.createObjectURL(event.target.files[0]);
+          output.onload = function() {
+            URL.revokeObjectURL(output.src) // free memory
+          }
+        };
+    </script>
+
+    <!-- Required vendors -->
+    <script src="{% static 'dashboard/js/global.min.js'%}"></script>
+    <script src="{% static 'dashboard/js/quixnav-init.js'%}"></script>
+    <script src="{% static 'dashboard/js/custom.min.js'%}"></script>
+    <script src="{% static 'dashboard/js/highlight.pack.min.js'%}"></script>
+    <!-- Circle progress -->
+</body>

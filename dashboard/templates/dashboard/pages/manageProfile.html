@@ -1,0 +1,42 @@
+{% extends 'dashboard/bases/base.html' %}
+{% load static %}
+
+{% block title %} Meu perfil | {% endblock title %}
+
+{% block content %}
+    <div class="content-body">
+        <div class="container-fluid">
+            {% include 'dashboard/partials/alerts.html' %}
+            <div class="row page-titles mx-0">
+                <div class="col-sm-6 p-md-0">
+                    <div class="welcome-text">
+                        <h4>Meu perfil </h4>
+                        <p class="mb-0">Aqui é possivel gerenciar a sessão nossos clientes da área publica do site. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <label for="">Nome</label>
+                            <div class="form-control"> {{request.user.first_name}}</div>
+                            <label for="">Apelido</label>
+                            <div class="form-control"> {{request.user.last_name}}</div>
+                            <label for="">Email</label>
+                            <div class="form-control"> {{request.user.email}}</div>
+                            <label for="">Telefone</label>
+                            <div class="form-control"> {{request.user.phone}}</div>
+                            <button type="submit" class="btn btn-primary">Alterar Palavra-passe</button>
+                            
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends 'gauenPublic/bases/basePublic.html' %}
+
+{% block title %} Simulador | {% endblock title %}
+{% block title_page %}Simulador Medidas de Autoproteção<br>beta{% endblock title_page %}
+
+{% block content %}
+<section class='simulator-content'>
+    <div class="container ">
+        {% include 'gauenPublic/partials/alerts.html' %}
+        <div class="row">
+            <div class="col-12">
+                <div class="title text-center p-0">
+                    <h2>Vamos começar?</h2>
+                    <p>Este é o simulador de categoria de risco de incêndio Gauen Engenharia, insira os dados do vosso
+                        edifício para saber qual o grau de risco e o custo para elaboração de medidas de
+                        autoproteção(MAPs):</p>
+                    <div class="border"></div>
+                </div>
+            </div>
+            <div class="col-12 bg-gray">
+                <div class="container col-sm-12 col-md-10 col-lg-8 pt-3">
+                    <form action="{% url 'gauenPublic:result' %}" method="POST">
+                        {% csrf_token %}
+
+                        <div class="form-content form-content-grid mx-auto" id="form_container">
+                            <div class="col-12">
+                                <label for="id_utilizacao_Tipo">
+                                    Selecione o tipo de utilização do edifício:
+                                </label>
+                            </div>
+                            <div class="form-group col-12">
+                                {{ form.utilizacao_Tipo }}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<div class='vertical-space'></div>
+
+
+<script>
+    let fields = { 'altura': `{{form.altura}}`, 'subsolo': `{{form.subsolo}}`, 'ar_Livre': `{{ form.ar_Livre}}`, 'area_Bruta': `{{form.area_Bruta}}`, 'efetivo': `{{form.efetivo_Total}}`, 'carga_Incendio': `{{form.carga_Incendio}}`, 'exclusivo_Armazem': `{{form.armazenExclusiv}}`, 'local_Risco_D': `{{form.local_Risco_D}}`, 'local_Risco_E': `{{ form.local_Risco_E}}`, 'efetivo_Local_D': `{{form.efetivo_Local_D}}`, 'efetivo_Local_E': `{{form.efetivo_Local_E}}`, 'ambiente_Materiais': `{{cargaIncendio.materiais}}`, 'areaAmbiente': `{{cargaIncendio.area_Ambinete}}`, 'ambiente_Nome': `{{cargaIncendio.nome_Ambiente}}`, 'finalidade': `{{cargaIncendio.finalidade}}`, 'materiais': `{{materiais.material}}`, 'volume': `{{materiais.volume}}` } 
+</script>
+
+{% endblock content %}

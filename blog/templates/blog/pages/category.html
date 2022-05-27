@@ -1,0 +1,35 @@
+{% extends 'gauenPublic/bases/basePublic.html' %}
+{% load static %}
+
+
+{% block title %} Blog: {{title}} | {% endblock title %}
+{% block title_page %}{{title}} {% endblock title_page %}
+
+{% block content %}
+
+<section class="blog" id="blog">
+	<div class="container">
+		<div class="row">
+			{% for post in posts %}
+			<article class="col-md-4 col-sm-6 col-xs-12 clearfix ">
+				<div class="post-item">
+					<div class="media-wrapper">
+						<img src="{{post.cover.url}}" alt="{{post.cover_describ}}" class="img-fluid">
+					</div>
+
+					<div class="content">
+						<h3><a href="{% url 'blog:read' post.slug %}">{{post.title}}</a></h3>
+						<p>{{post.description}}</p>
+						<a class="btn btn-main" href="{% url 'blog:read' post.slug %}">Ler Mais</a>
+					</div>
+				</div>
+			</article>
+			{% empty %}
+                  <h4 class="text-center">Nenhuma publicação encontrada.<br>Por favor, volte mais tarde! </h4>
+			{% endfor %}
+		</div>
+		{% include 'blog/partials/pagination.html' %}
+	</div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,54 @@
+{% extends 'gauenPublic/bases/basePublic.html' %}
+{% load static %}
+
+{% block title %} Sobre Nós | {% endblock title %}
+{% block title_page %}Sobre Nós{% endblock title_page %}
+
+{% block content %}
+<section class="about-shot-info section-sm">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 mt-20">
+				<h2>Facilitamos a vida dos nossos clientes</h2>
+				<p>Somos uma empresa com uma <strong>equipa multidisciplinar</strong>, que busca facilitar os processos, de forma a garantir a realização da sua visão.</p>
+				<p>Nossa equipa é composta por colaboradores especialistas em <strong>diversas áreas</strong>, nomeadamente em projetos de arquitetura e engenharia, implementação da metodologia BIM, segurança contra incêndio, processos de licenciamento e desenvolvimento de software ligado à área da engenharia.</p>
+				<p>Acreditamos na <strong>inovação</strong> que permita beneficiar um número crescente de pessoas e trabalhamos todos os dias com o intuito de melhorar a experiência dos nossos clientes.</p>
+			</div>
+			<div class="col-md-6">
+				<img class="img-fluid" src="{% static 'gauenPublic/img/about/mission-img.jpg' %}" alt="">
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+<section class="company-mission section-sm bg-gray">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h3>Missão</h3>
+				<p>A nossa natureza é trabalhar todos os dias com o intuito de melhorar o nosso desempenho em relação ao que fomos ontem.  </p>
+				<img src=" {% static 'gauenPublic/img/about/evolution_img.png' %}" alt="Nossa missão" class="img-fluid mt-2">
+			</div>
+			<div class="col-md-4">
+				<h3>Visão</h3>
+				<p>Ser reconhecidos no setor da construção de imóveis pela eficiência, agilidade e inovação.</p>
+				<img src="{% static 'gauenPublic/img/about/vision-img.jpg' %}" alt="
+				Foto de Karolina Grabowska no Pexels
+				" class="img-fluid mt-30">
+			</div>
+			<div class="col-md-4">
+				<h3>Valores</h3>
+				<p>Igualdade | Inovação <br> Integração | Excelência.
+					</p>
+				<img src="{% static 'gauenPublic/img/about/sucess-img.png' %}" alt="
+				Foto de fauxels no Pexels
+				" class="img-fluid mt-30">
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock content %}

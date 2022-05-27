@@ -1,0 +1,33 @@
+<div class="modal" tabindex="-1" role="dialog" id="managecookies">
+    <div class="modal-dialog" role="document">
+        <form action="" method="POST" id="selectedcookies">
+            {% csrf_token %}
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Gerenciar Cookies</h5>
+                </div>
+                <div class="modal-body">
+                    <h5>Nossa politica de privacidade</h5>
+                    <p>Aqui vai um texto explicando a utilização dos cookies do site e de terceiros</p>
+                    <hr>
+                    <h5>Permissões</h5>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" name='gauencookies' type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked disabled>
+                        <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Cookies necessários para o funcionamento do site</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" name="googleanalytics" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Cookies Google Analitycs</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary acceptallcookies" data-dismiss="modal">Permitir todos</button>
+                    <button type="button" class="btn btn-secondary selectedcookies" data-dismiss="modal">Permitir seleção</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    
+</script>

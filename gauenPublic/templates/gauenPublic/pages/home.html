@@ -1,0 +1,144 @@
+{% extends 'gauenPublic/bases/baseHome.html' %}
+{% load static %}
+
+{% block content %}
+   <section class="service-2 section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="title text-center">
+            <h2>Nosso diferencial</h2>
+            <p>Trabalhe uma vez conosco e vais querer trabalhar sempre! </p>
+            <div class="border"></div>
+          </div>
+        </div>
+  
+        <div class="col-md-4 text-center">
+          <img src="{% static 'gauenPublic/img/nossaequipa.jpg' %}" class="inline-block" alt="Nossa equipa - Photo by fauxels from Pexels">
+        </div>
+        <div class="col-md-8">
+          <div class="row text-center">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="service-item">
+                <i class="tf-ion-ribbon-b"></i>
+                <h4>Equipa de especialista</h4>
+                <p>Temos pessoal especializado em cada área de projeto para melhor atender às necessidades dos nossos clientes</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="service-item">
+                <i class="tf-ion-ios-chatboxes-outline"></i>
+                <h4>Acesso fácil aos técnicos</h4>
+                <p>Gostamos de ouvir os nossos clientes. Temos suporte através de e-mail e telefone, sempre que precisar</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="service-item">
+                <i class="tf-ion-wand"></i>
+                <h4>A realizar sonhos</h4>
+                <p>Acompanhamos todo o processo desde a concepção a até a conclusão da obra</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="service-item">
+                <i class="tf-ion-ios-lightbulb-outline"></i>
+                <h4>Equipa jovem e dinâmica</h4>
+                <p>Nossa equipa está sempre por dentro das novas tendências de construção e engenharia</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div> 
+  </section>
+  
+
+  <section class="about-2 section" id="about">
+      <div class="container">
+          <div class="row">
+  
+              <div class="col-12">
+                  <div class="title text-center">
+                      <h2>Nós somos a Gauen</h2>
+                      <p>Empresa multidisciplinar na área da engenharia e construção.</p>
+                      <div class="border"></div>
+                  </div>
+              </div>
+  
+              <div class="col-md-6">
+                  <img src="{% static 'gauenPublic/img/projetando.jpg' %}" class="img-fluid" alt="<a href='https://br.freepik.com/fotos-vetores-gratis/projeto-arquiteto'>Projeto arquiteto foto criado por mindandi - br.freepik.com</a>">
+              </div>
+              <div class="col-md-6">
+                  <ul class="checklist">
+                      <li>Orçamentos em até 48 horas;</li>
+                      <li>Elaboração de projetos através da metodologia BIM;</li>
+                      <li>Trabalhamos com agilidade e celeridade;</li>
+                      <li>Suporte e apoio em qualquer problema que surja no desenvolvimento e excução dos projetos;</li>
+                      <li>Acreditamos na inovação e melhoramento nos processos de trabalho de forma a simplificar o processo de construção;</li>
+                      <li>Acompanhamento de processos junto das entidades competentes</li>
+                      <li>Damos valor ao feedback dos nossos clientes e adequamos o desenvolvimento dos nossos serviços às necessidades do cliente.</li>
+                  </ul>
+                  <a href="{% url 'gauenPublic:contact' %}" class="btn btn-primary mt-0 align-bottom">Contacte-nos</a>
+                
+              </div>
+          </div> 
+      </div> 
+  </section> 
+  {% if clients %}
+    {% include 'gauenPublic/partials/ourClients.html' %} 
+  {% endif %}
+  <section class="call-to-action section">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12 text-center">
+                  <h2>Vamos projetar juntos?</h2>
+                  <p>Nós nos importamos com a vossa opinião. E com a equipa especializada iremos encontrar soluções inovadoras e incríveis para o vosso projeto. </p>
+                  <a href="{% url 'gauenPublic:contact' %}" class="btn btn-primary">Contacte-nos Já</a>
+              </div>
+          </div> 		
+      </div>   	
+  </section>   
+   
+       
+    {% include 'gauenPublic/partials/counter.html' %}         
+
+  
+
+ 
+  <section class="blog" id="blog">
+      <div class="container">
+          <div class="row">
+  
+              <div class="col-12">
+                  <div class="title text-center ">
+                      <h2> Publicações <span class="color">Recentes</span></h2>
+                      <div class="border"></div>
+                      <p>Ainda não leu? Estas são as nossas últimas publicações:</p>
+                  </div>
+              </div>
+
+                {% for post in posts %}
+                  <article class="col-md-4 col-sm-6 col-xs-12 clearfix ">
+                      <a href="{% url 'blog:read' post.slug %}">
+                        <div class="post-item">
+                          <div class="media-wrapper">
+                              <img src="{{post.cover.url}}" alt="{{post.cover_describ}}" class="img-fluid">
+                          </div>
+      
+                          <div class="content">
+                              <h3><a href="{% url 'blog:read' post.slug %}">{{post.title}}</a></h3>
+                              <p>{{post.description}}</p>
+                              <a class="btn btn-primary" href="{% url 'blog:read' post.slug %}">Ler Mais</a>
+                          </div>
+                        </div>
+                      </a>
+                  </article>
+
+                {% empty %}
+                  <h4 class="text-center">Nenhuma publicação encontrada.<br>Por favor, volte mais tarde! </h4>
+                {% endfor %}
+          </div>
+      </div> 
+  </section>
+
+{% endblock content %}

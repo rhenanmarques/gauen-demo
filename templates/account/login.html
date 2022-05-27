@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Login | {% endblock title %}
+{% block title_page %}Acesso a área reservada{% endblock title_page %}
+
+{% block content %}
+    <section class="about-2 section" id="about">
+        <div class="container">
+            <div class="row mgTp">
+                <form class="col-md-6 offset-md-3" action="{% url 'account_login' %}" method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                <div class="container mb-3 p-0">
+                    <a href="{% url 'account_reset_password' %}">Redefinir palavra-passe</a>
+                </div>
+                <button type="submit" class="btn btn-primary topBtn">Entrar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+<div class='vertical-space'></div>
+{% endblock content %}

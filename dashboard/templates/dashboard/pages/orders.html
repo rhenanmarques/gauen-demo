@@ -1,0 +1,76 @@
+{% extends 'dashboard/bases/base.html' %}
+
+{% block title %} Ordens de serviço | {% endblock title %}
+
+{% block content %}
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Olá,</h4>
+                    <p class="mb-0">Estas são as suas soliciteções</p>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <!-- botões navegação 
+                    <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Layout</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Blank</a></li>
+                </ol>
+                -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Solicitações</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped verticle-middle table-responsive-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Cliente</th>
+                                        <th scope="col">Serviço</th>
+                                        <th scope="col">Valor</th>
+                                        <th scope="col">Solicitado</th>
+                                        <th scope="col">Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for order in orders %}
+                                    <tr>
+                                        <td>
+                                            {{ order }}
+                                        </td>
+                                        <td>
+                                            MAP's {{order.utilizacao_Tipo}} {{order.categoria}}ª
+                                            categoria
+                                        </td>
+                                        <td>{{order.price}} €</td>
+                                        <td>{{order.criated_at|date:'d-m-Y'}}
+                                        </td>
+                                        <td><span><a href="javascript:void()" class="mr-4" data-toggle="tooltip"
+                                                    data-placement="top" title="Edit"><i
+                                                        class="fa fa-pencil color-muted"></i>
+                                                </a><a href="{% url 'dashboard:delete' order.id %}" data-toggle="tooltip"
+                                                    data-placement="top" title="Close"><i
+                                                        class="fa fa-close color-danger"></i></a></span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

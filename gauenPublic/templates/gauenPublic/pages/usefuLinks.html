@@ -1,0 +1,30 @@
+{% extends 'gauenPublic/bases/basePublic.html' %}
+{% load static %}
+
+{% block title %} Links Úteis | {% endblock title %}
+{% block title_page %}Links Úteis{% endblock title_page %}
+
+{% block content %}
+
+<section class="about-shot-info section-sm">
+	<div class="container">
+		<div class="row">
+            <div class="col-md-6">
+				<img class="img-fluid" src="{% static 'gauenPublic/img/about/links.jpg' %}" alt="">
+			</div>
+			<div class="col-md-6 mt-20">
+                <ul style="list-style-type: disc;">
+                    {% for link in links %}
+                        <li><a href="{{ link.url }}" target ="_blank">{{link}}</a></li>
+                    {% empty %}
+                    <h4 class="text-center">Nenhum link aqui.<br>Por favor, volte mais tarde! </h4>
+                    <div class='vertical-space'></div>
+                    {% endfor %}
+                </ul>	
+			</div>
+			
+		</div>
+	</div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,97 @@
+{% extends 'gauenPublic/bases/basePublic.html' %}
+{% load static %}
+
+
+{% block title %} {{content.title}} | {% endblock title %}
+{% block title_page %}{{content.title}}{% endblock title_page %}
+
+{% block content %}
+<section class="blog-details section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <article class="post">
+                    <div class="post-image">
+                        <img class="img-fluid w-100" src="{{content.cover.url}}" alt="{{content.cover_describ}}">
+                    </div>
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <h3>{{content.description}}</h3>
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a href="#">{{content.author.get_full_name }}</a> &nbsp;|
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">Plubicado em: {{content.created_at}}</a>&nbsp;
+                            </li>
+                        </ul>
+                        {{content.article|safe}}
+
+                        <ul class="post-content-share list-inline">
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="tf-ion-social-twitter"></i>
+                                </a>
+                                
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="tf-ion-social-linkedin"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="tf-ion-social-facebook"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="tf-ion-social-whatsapp"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--form comment-->
+                    </div>
+                </article>
+            </div>
+
+            <div class="col-lg-4">
+                <aside class="sidebar">
+                    {% include 'blog/partials/searchBar.html' %}
+                    <div class="widget-categories widget">
+                        <h2>Categorias</h2>
+                        <ul class="widget-categories-list">
+                            {% for category in categories %}
+                            <li>
+                                <a href="{% url 'blog:category' category.slug %}">{{category.name}}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="widget-post widget">
+                        <h2>Leia Também</h2>
+                        <ul class="widget-post-list">
+                            {% for post in more %}
+                            <li class="widget-post-list-item">
+                                <div class="widget-post-image">
+                                    <a href="{% url 'blog:read' post.slug %}">
+                                        <img src="{{post.cover.url}}" alt="{{post.cover_describ}}">
+                                    </a>
+                                </div>
+                                <div class="widget-post-content">
+                                    <a href="{% url 'blog:read' post.slug %}">
+                                        <h5>{{post.title}}</h5>
+                                    </a>
+                                    <h6>{{post.created_at}}</h6>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

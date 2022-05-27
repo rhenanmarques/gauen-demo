@@ -1,0 +1,19 @@
+{% load static %}
+
+<div class="hero-slider">
+    {% for slide in slides %}
+    <div class="slider-item th-fullpage hero-area" style="background-image: url({{slide.image.url}});">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1 data-duration-in="{{slide.title_animation_duration_in}}" data-animation-in="{{slide.title_animation}}" data-delay-in=".1">{{slide.title|safe}}</h1>
+                    <p data-duration-in="{{slide.subtitle_animation_duration_in}}" data-animation-in="{{slide.subtitle_animation}}" data-delay-in=".5">{{slide.subtitle|safe}}
+                        </p>
+                    <a data-duration-in="{{slide.button_animation_duration_in}}" data-animation-in="{{slide.button_animation}}" data-delay-in=".8" class="btn btn-main"
+                        href="{{ slide.button_link }}">{{slide.button_name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

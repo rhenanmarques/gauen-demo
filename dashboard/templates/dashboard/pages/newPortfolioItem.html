@@ -1,0 +1,59 @@
+{% extends 'dashboard/bases/base.html' %}
+{% load static %}
+
+{% block title %} Adicionar ao portfólio | {% endblock title %}
+
+{% block content %}
+<div class="content-body">
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Adicionar ao Portfólio</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="basic-form">
+                            <form action="#" method="POST" 
+                                enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-row">
+                                        {% for field in form %}
+                                            {% if field.name == 'is_Public' %}
+                                                <div class="form-group col-md-12">
+                                                    <div class="form-check">
+                                                        {{ field }}
+                                                        <label for="{{ field.id_for_label}}" class='form-check-label'>
+                                                            {{field.label}}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            {% elif field.name == 'image' %}
+                                                <div class="form-group col-md-12">
+                                                    <label for="{{ field.id_for_label }}">{{field.label}}</label>
+                                                    <div class="p-2">
+                                                        <img id="output" class="img-fluid" src="{{ field.value.url }}" alt="">
+                                                    </div>
+                                                    {{ field }}
+                                                </div>
+                                            {% else %}
+                                                <div class="form-group col-md-12">
+                                                    <label for="{{ field.id_for_label}}">{{field.label}}</label>
+                                                    {{ field }}
+                                                </div>
+                                            {% endif %}
+                                            
+                                        {% endfor %}
+                                    </div>
+    
+                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

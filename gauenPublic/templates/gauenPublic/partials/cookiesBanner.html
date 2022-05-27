@@ -1,0 +1,15 @@
+{% load static %}
+
+<div class="alert text-center cookiealert" role="alert">
+    <b>Você gosta de biscoitos?</b> &#x1F36A; Usamos cookies para garantir que você tenha a melhor experiência em nosso
+    site. <a href="https://cookiesandyou.com/" target="_blank">Nossa Politica de privacidade</a>
+
+    <button type="button" class="btn btn-primary btn-sm acceptcookies">
+        Concordo
+    </button>
+
+    <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" href="{% static 'gauenPublic/partials/cookiesManage.html' %}" data-target="#managecookies" data-backdrop="static" data-keyboard="false">
+        Gerenciar Permissões
+    </button>
+
+</div>

@@ -1,0 +1,77 @@
+{% extends 'dashboard/bases/base.html' %}
+
+{% block title %} Menssagens | {% endblock title %}
+
+{% block content %}
+<div class="content-body">
+    <div class="container-fluid">
+        {% include 'dashboard/partials/alerts.html' %}
+        <div class="row page-titles mx-0">
+            <div class="col-sm-6 p-md-0">
+                <div class="welcome-text">
+                    <h4>Olá,</h4>
+                    <p class="mb-0">Estas são as suas menssagens recebidas pelo site</p>
+                </div>
+            </div>
+            <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                <!-- botões navegação 
+                    <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Layout</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Blank</a></li>
+                </ol>
+                -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Mensagens</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped verticle-middle table-responsive-sm">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Assunto</th>
+                                        <th scope="col">Remetente</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Telefone</th>
+                                        <th scope="col">Recebido</th>
+                                        <th scope="col">Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for message in messages %}
+                                    <tr>
+                                        <td>
+                                            {{ message.describe }}
+                                        </td>
+                                        <td>
+                                            {{ message.name}}
+                                        </td>
+                                        <td>{{message.email}}</td>
+                                        <td>{{ message.phone}}</td>
+                                        <td>{{ message.criated_at}}</td>
+
+                                        <td><span><a href="#" class="mr-4" data-toggle="tooltip"
+                                                    data-placement="top" title="Edit"><i
+                                                        class="fa fa-pencil color-muted"></i>
+                                                </a><a href="#" data-toggle="tooltip"
+                                                    data-placement="top" title="Close"><i
+                                                        class="fa fa-close color-danger"></i></a></span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

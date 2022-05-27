@@ -1,0 +1,103 @@
+{% extends 'gauenPublic/bases/basePublic.html' %}
+{% load static %}
+
+{% block title %} Simulador: Map {{name_UT}} {{cat}}ª Categoria | {% endblock title %}
+{% block title_page %}Medida de Autoproteção {{name_UT}} <br>{{cat}}ª Categoria de Risco{% endblock title_page %}
+
+{% block content %}
+<section class="contact-us" id="contact">
+	<div class="container-fluid px-0">
+		<div class="row">
+			<div class="col-12">
+
+				<section class="pricing-table " id="pricing">
+					<div class="container">
+						<div class="row justify-content-md-center">
+
+
+							<!-- section title -->
+							<div class="col-12">
+								<div class="title title-white text-center ">
+									<!--{% if cat == 1 %}
+										<h2>Nossos melhores planos</h2>
+										<p>Com base nos dados fornecidos, nós encontramos duas opções de plano, para que possa escolher o mais adequado às suas necessidades.</p>
+									{% else %}
+										<h2>Nosso melhor plano</h2>
+										<p>Com base nos dados fornecidos, apresentamos a nossa proposta de orçamento para a execução deste trabalho. </p>
+									{% endif %}-->
+									<h2>Nosso melhor plano para sua segurança</h2>
+										<p>Com base nos dados fornecidos, apresentamos a nossa proposta de orçamento para a execução deste trabalho. </p>
+									<div class="border"></div>
+								</div>
+							</div>
+							<!--
+							{% if cat == 1 %}
+								<div class="col-md-4 col-sm-6 col-xs-12">
+									<div class="pricing-item">
+										<div class="price-title">
+											<h3>Autoatendimento</h3>
+											<strong class="value">{{price}} €</strong>
+											<p>Forma mais rápida de elaborar as suas medidas de autoproteção</p>
+										</div>
+										<ul>
+											<li><i class="tf-ion-ios-arrow-forward"></i> Processo de elaboração simplificada
+											</li>
+											<li><i class="tf-ion-ios-arrow-forward"></i> Confirmação de dados via telefone
+											</li>
+											<li><i class="tf-ion-ios-arrow-forward"></i> Map's em até 24 horas</li>
+											<li><i class="tf-ion-ios-arrow-forward"></i> Mais econômico</li>
+											<li><i class="tf-ion-ios-close-empty"></i> Não inclui entrega e acompanhamento
+												junto a ANEPC</li>
+
+										</ul>
+
+										<a class="btn btn-main" href="{% url 'gauenPublic:request' %}">Solicitar</a>
+
+									</div>
+								</div>
+							{% endif %}
+							-->
+							<div class="col-xl-6 col-md-4 col-sm-6 col-xs-12  ">
+								<div class="pricing-item">
+
+									<!-- plan name & value -->
+									<div class="price-title text-center">
+										<h3>Medidas de Autoproteção {{name_UT}} <br>{{cat}}ª Categoria de Risco</h3>
+										<p>Atendimento personalizado com os nossos especialistas </p>
+									</div>
+									<!-- /plan name & value -->
+
+									<!-- plan description -->
+									<ul>
+										<li><i class="tf-ion-ios-arrow-forward"></i> Visita técnica</li>
+										<li><i class="tf-ion-ios-arrow-forward"></i> Elaboração pela equipa de
+											engenharia</li>
+										<li><i class="tf-ion-ios-arrow-forward"></i> Entrega e acompanhamento junto a
+											ANEPC</li>
+										<li><i class="tf-ion-ios-arrow-forward"></i> Conclusão em 10 dias*</li>
+
+									</ul>
+
+									<div class="price-title text-center">
+										<strong class="value ">{{price}} €</strong> <span>+ IVA</span>
+									</div>
+									<div class="container-fluid text-center">
+									<a class="btn btn-main" href="{% url 'gauenPublic:request' %}">
+										Solicitar Orçamento Completo
+									</a>
+									</div>
+
+								</div>
+							</div>
+
+
+						</div> <!-- End row -->
+					</div> <!-- End container -->
+				</section> <!-- End section -->
+
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock content %}

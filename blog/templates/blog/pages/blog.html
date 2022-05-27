@@ -1,0 +1,37 @@
+{% extends 'gauenPublic/bases/basePublic.html' %}
+{% load static %}
+
+
+{% block title %} Blog | {% endblock title %}
+{% block title_page %}Blog{% endblock title_page %}
+
+{% block content %}
+
+<section class="blog" id="blog">
+	<div class="container">
+		{% include 'blog/partials/searchBar.html' %}
+		<div class="row justify-content-center">
+			{% for post in posts %}
+				<article class="col-md-4 col-sm-6 col-xs-12 clearfix ">
+					<div class="post-item">
+						<div class="media-wrapper">
+							<a href="{% url 'blog:read' post.slug %}"><img src="{{post.cover.url}}" alt="{{post.cover_describ}}" class="img-fluid"></a>
+						</div>
+
+						<div class="content">
+							<h3><a href="{% url 'blog:read' post.slug %}">{{post.title}}</a></h3>
+							<p>{{post.description}}</p>
+							<!--<a class="btn btn-main" href="{% url 'blog:read' post.slug %}">Ler Mais</a>-->
+						</div>
+					</div>
+				</article>
+			{% empty %}
+				<h2 class="text-center">Nenhum post encontrado</h2>
+			{% endfor %}
+			
+		</div>
+		{% include 'blog/partials/pagination.html' %}
+	</div>
+</section>
+
+{% endblock content %}

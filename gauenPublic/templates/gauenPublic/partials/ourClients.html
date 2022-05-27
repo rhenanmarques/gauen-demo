@@ -1,0 +1,22 @@
+{% load static %}
+<section class="section grallery">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="title text-center">
+					<h2>Alguns de nossos clientes</h2>
+					<p>Confira alguns dos nossos trabalhos realizados por todo o país, nas várias áreas da engenharia em que atuamos.</p>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div id="clients-slider" class="clients-logo-slider">
+                    {% for client in clients %}
+                        <img src="{{client.logo.url}}" alt="{{client.name}}">
+                    {% endfor %}
+                </div>
+			</div>
+		</div>
+	</div>
+</section>
